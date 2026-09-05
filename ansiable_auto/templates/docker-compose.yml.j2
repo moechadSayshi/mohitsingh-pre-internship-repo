@@ -1,0 +1,25 @@
+services:
+  twenty:
+    image: twentycrm/twenty-app-dev:latest
+    container_name: twenty-app-dev
+    restart: unless-stopped
+
+    ports:
+      - "{{ twenty_port }}:2020"
+
+    environment:
+      NODE_PORT: 2020
+      SERVER_URL: "http://localhost:{{ twenty_port }}"
+
+    volumes:
+      - twenty_data:/app/.local-storage
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:2020/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 180s
+
+volumes:
+  twenty_data:

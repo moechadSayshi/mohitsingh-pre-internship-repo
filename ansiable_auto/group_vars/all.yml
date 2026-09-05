@@ -1,0 +1,5 @@
+app_user: twenty
+app_dir: /opt/twenty
+twenty_repo: "https://github.com/PearlThoughts-Intern-DevOps/devops-crm-project.git"
+twenty_branch: main
+twenty_port: 2020
