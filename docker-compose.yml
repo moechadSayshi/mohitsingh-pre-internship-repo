@@ -16,7 +16,7 @@ services:
     container_name: twenty-server
     restart: unless-stopped
     ports:
-      - "${SERVER_PORT:-2020}:2020"   # Twenty web UI + API
+      - "${SERVER_PORT:-2020}:2020" # Twenty web UI + API
 
     environment:
       NODE_PORT: "2020"
@@ -26,10 +26,10 @@ services:
       PG_DATABASE_URL: "postgres://twenty:twenty@localhost:5432/default"
       REDIS_URL: "redis://localhost:6379"
       STORAGE_TYPE: "local"
-      DISABLE_DB_MIGRATIONS: "true"          # migrations run on first start
+      DISABLE_DB_MIGRATIONS: "true" # migrations run on first start
       DISABLE_CRON_JOBS_REGISTRATION: "true"
       IS_BILLING_ENABLED: "false"
-      SIGN_IN_PREFILLED: "true"              # pre-fills dev credentials
+      SIGN_IN_PREFILLED: "true" # pre-fills dev credentials
       APPLICATION_LOG_DRIVER: "CONSOLE"
 
     volumes:
@@ -43,8 +43,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 12
-      start_period: 180s  r
-
+      start_period: 180s
 
   twenty-app:
     build:
